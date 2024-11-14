@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
-    //
+    protected $fillable = [
+        'user_id',
+        'message',
+        'type',
+        'read_at',
+        'is_deleted',
+    ];
+
+    // Relationships
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

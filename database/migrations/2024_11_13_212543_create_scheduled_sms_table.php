@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('scheduled_sms', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('account_id')->nullable();
+            $table->string('message_from')->nullable();
+            $table->string('message_to')->nullable();
+            $table->text('message')->nullable();
+            $table->string('status')->nullable();
+            $table->string('scheduled_at')->nullable();
+            $table->string('type')->nullable();
+            $table->string('received_at')->nullable();
+            $table->string('read_at')->nullable();
+            $table->boolean('is_scheduled')->default(0);
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

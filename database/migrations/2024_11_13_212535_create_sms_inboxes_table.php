@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('sms_inboxes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('account_id')->nullable();
+            $table->string('message_from')->nullable();
+            $table->string('message_to')->nullable();
+            $table->text('message')->nullable();
+            $table->string('status')->nullable();
+            $table->string('received_at')->nullable();
+            $table->string('read_at')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->timestamps();
         });
     }
